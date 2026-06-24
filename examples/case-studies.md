@@ -1,5 +1,7 @@
 # Case studies — before / after, in the model's own words
 
+**English** · [中文](case-studies.zh-CN.md)
+
 These are real moments, anonymized, from day-to-day agentic-coding work. Each one
 is a place where the assistant ended a turn with a **fake option menu**, the user
 typed `/what-the-heck`, and the assistant then ran the skill's self-audit and
