@@ -81,8 +81,10 @@ pick *inside* the menu, then asks you to rule on it anyway:
 
 > **§1 — My actual recommendation:** delete. I literally wrote "I recommend C" and
 > then re-wrapped it as a quiz for you to rule on — that's cost-shifting.
+>
 > **§2 — Fake options:** A/B/C all have zero blast radius, are fully reversible, no
 > stakeholders, no taste call. The decision was already made.
+>
 > **§3 — Execute now.** *(deletes the file, continues)*
 
 Eight full before/after cases — a "1/2/3 you decide" on a string substitution, a
