@@ -1,0 +1,20 @@
+{
+  "name": "what-the-heck",
+  "owner": {
+    "name": "Mclamee",
+    "email": "mclamee@yeah.net"
+  },
+  "metadata": {
+    "description": "What The Heck — make your AI stop hedging with fake option menus and just say what it thinks",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "what-the-heck",
+      "source": "./",
+      "description": "Self-audit skill that forces a single committed recommendation instead of cost-shifting multi-option selectors. Invoked as /what-the-heck.",
+      "category": "meta",
+      "tags": ["meta", "decision-making", "agent-behavior", "claude-code", "opus"]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "what-the-heck",
+  "version": "1.0.0",
+  "description": "A one-word self-audit skill that stops the AI from cost-shifting with fake multi-option selectors and makes it commit to a single recommendation. Tuned for frontier models (Claude Opus 4.8).",
+  "author": {
+    "name": "Mclamee",
+    "email": "mclamee@yeah.net"
+  },
+  "homepage": "https://github.com/mclamee/what-the-heck",
+  "repository": "https://github.com/mclamee/what-the-heck",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "skill",
+    "decision-making",
+    "agent-behavior",
+    "opus",
+    "self-audit"
+  ]
+}
