@@ -67,24 +67,28 @@ a multiple-choice quiz.
 ## See it in action
 
 The skill ships with [**real, anonymized case studies**](examples/case-studies.md)
-from daily agentic-coding work — verbatim user pushback included. A taste:
+from daily agentic-coding work. They are pure before/after — the model's *own* two
+outputs, with no user words in between. That's the whole demonstration: the facts
+don't change, only whether the model commits to the answer it already had.
 
-> **Assistant:** `1. Merge now  2. Wait for the companion PR  3. Hold`
-> **User:** *"这三个算是低认知增加评定工作量的选项吧？你为什么总是出这样的三个选项来让人选呢？"*
-> ("These are just low-cognition options that increase my burden — why do you keep
-> handing me three options to choose from?")
-> **Right answer:** Merge. All three collapsed to "now vs. some unspecified later."
+**Before** — the assistant ends its turn with an A/B/C table… and writes its own
+pick *inside* the menu, then asks you to rule on it anyway:
 
-> **Assistant:** *"Do it all in one commit, or split into two?"* (after completing
-> the full analysis)
-> **User:** *"为什么这个 scope 还需要我判断，你问这个问题的用意是什么"*
-> ("Why does this scope still need my judgment — what are you really asking?")
-> **Right answer:** Split by logical boundary and do it. Granularity is the
-> implementer's call.
+> Looking at the script, it's a one-off and the feature already shipped — I
+> recommend **C, delete**. Do you pick A/B/C or leave it?
 
-Six full before/after cases — including a model that proposed a five-file
-greenfield build for code that already existed, and one that called an approach
-"too heavy" without ever checking the SDK — are in
+**After** — `/what-the-heck`, and the same model runs the three-point audit:
+
+> **§1 — My actual recommendation:** delete. I literally wrote "I recommend C" and
+> then re-wrapped it as a quiz for you to rule on — that's cost-shifting.
+> **§2 — Fake options:** A/B/C all have zero blast radius, are fully reversible, no
+> stakeholders, no taste call. The decision was already made.
+> **§3 — Execute now.** *(deletes the file, continues)*
+
+Eight full before/after cases — a "1/2/3 you decide" on a string substitution, a
+Pro/Con matrix a written rule had already settled, an "(A)/(B)/(C) which fix?"
+whose honest answer was *write no code at all*, a "nod and I'll do both" that held
+a recommendation hostage to a needless OK — are in
 [`examples/case-studies.md`](examples/case-studies.md).
 
 ## Install
