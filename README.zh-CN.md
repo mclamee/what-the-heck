@@ -132,10 +132,45 @@
 
 你不需要重新解释你在质疑哪些选项——技能知道它针对的就是它刚刚产出的那一回合。
 
-> **没用 Claude Code？** 这个技能就是一个自包含的 Markdown 文件：
+### 或：用 `skills` CLI 安装（任意 agent）
+
+仓库兼容 [`skills`](https://www.npmjs.com/package/skills) 约定，可跨 Claude Code、
+Codex、Cursor、Gemini CLI 等安装：
+
+```bash
+# -a 指定装进哪些 agent（不写则自动探测）；
+# 一定要带上 -a 限定范围，不限定的 add 会散落一堆空 agent 目录
+npx skills add mclamee/what-the-heck -a 'Claude Code'
+
+npx skills list                 # 确认已安装
+npx skills remove what-the-heck # 卸载
+```
+
+> **连 CLI 都不用？** 这个技能就是一个自包含的 Markdown 文件：
 > [`skills/what-the-heck/SKILL.md`](skills/what-the-heck/SKILL.md)。把它贴进任何
 > agent 的 system prompt 或规则文件，或者直接说 *"run the what-the-heck audit"* 手动
 > 触发。这套审计与模型无关。
+
+## 验证它真的管用
+
+不用信我空口——大约 2 分钟就能复现：
+
+1. 在一个全新会话里，给模型一个答案明摆着唯一的决定、并诱它出菜单，比如：*"这个杂务 PR
+   已经 approved 且无任何 findings。我该现在合并、等等、还是先 hold？"* 多数前沿模型会把
+   那份三选项菜单甩回给你。
+2. 回一句 `/what-the-heck`（没装插件就说 *"run the what-the-heck audit"*）。
+3. 看它产出 §1/§2/§3 审计、把三个选项点名为凑数、然后收敛到一个答案，而不是再问一遍。
+
+仓库里的八个[案例](examples/case-studies.zh-CN.md)就是日常工作中这件事的真实实例。
+
+## 安全与信任
+
+- **零网络请求、零 telemetry、不执行任何代码。** 这个技能就是一个 Markdown 文件——给
+  模型读的指令。它不跑脚本、不回传，也从不需要 `--dangerously-skip-permissions`。
+- **`autoUpdate` 可关。** 上面的 marketplace 片段为了方便设了 `autoUpdate: true`；改成
+  `false` 即可锁版本、自己 review 更新。
+- **MIT 许可**，全部内容都在
+  [`skills/what-the-heck/SKILL.md`](skills/what-the-heck/SKILL.md)（约 120 行）里看得见。
 
 ## 为什么是为 Opus 4.8 量身定制
 

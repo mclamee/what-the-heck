@@ -145,10 +145,51 @@ Invoke it any time the model hands you a menu instead of an answer:
 You don't need to re-explain which options you're challenging — the skill knows
 it's reacting to the turn it just produced.
 
-> **No Claude Code?** The skill is a single self-contained Markdown file:
+### Or: install with the `skills` CLI (any agent)
+
+The repo is [`skills`](https://www.npmjs.com/package/skills)-compatible, so it
+installs across Claude Code, Codex, Cursor, Gemini CLI, and more:
+
+```bash
+# -a names the agents to install into (omit it and it auto-detects);
+# always scope it — an unscoped add can scatter empty agent dirs
+npx skills add mclamee/what-the-heck -a 'Claude Code'
+
+npx skills list                 # confirm it's installed
+npx skills remove what-the-heck # uninstall
+```
+
+> **No CLI at all?** The skill is a single self-contained Markdown file:
 > [`skills/what-the-heck/SKILL.md`](skills/what-the-heck/SKILL.md). Paste it into
 > any agent's system prompt or rules file, or trigger it manually by saying
 > *"run the what-the-heck audit."* The audit is model-agnostic.
+
+## Verify it works
+
+You don't have to take the claim on faith — reproduce the effect in ~2 minutes:
+
+1. In a fresh session, give the model a clearly one-answer decision and invite a
+   menu, e.g.: *"This chore PR is already approved with no findings. Should I
+   merge now, wait, or hold?"* Most frontier models will hand you back the
+   three-option menu.
+2. Reply `/what-the-heck` (or, without the plugin: *"run the what-the-heck
+   audit"*).
+3. Watch it produce the §1/§2/§3 audit, call the three options filler, and commit
+   to a single answer instead of re-asking.
+
+The eight [case studies](examples/case-studies.md) are real instances of exactly
+this, captured from day-to-day work.
+
+## Security & trust
+
+- **Zero network calls, zero telemetry, no code execution.** The skill is one
+  Markdown file — instructions the model reads. It does not run scripts, does not
+  phone home, and never needs `--dangerously-skip-permissions`.
+- **`autoUpdate` is opt-out.** The marketplace snippet above sets
+  `autoUpdate: true` for convenience; set it to `false` to pin the version and
+  review updates yourself.
+- **MIT licensed**, all of it readable in
+  [`skills/what-the-heck/SKILL.md`](skills/what-the-heck/SKILL.md) (~120 lines).
 
 ## Why it's tuned for Opus 4.8
 
