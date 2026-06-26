@@ -2,6 +2,8 @@
 
 [English](README.md) · **中文**
 
+![what the heck — 三个打太极的选项坍缩成一个明确答案](docs/hero.png)
+
 **一句话指令，让你的 AI 别再打太极，直接说出它真正的判断。**
 
 > `/what-the-heck`

@@ -2,6 +2,8 @@
 
 **English** · [中文](README.zh-CN.md)
 
+![what the heck — three hedging options collapse into one committed answer](docs/hero.png)
+
 **A one-word command that makes your AI stop hedging and tell you what it actually thinks.**
 
 > `/what-the-heck`
